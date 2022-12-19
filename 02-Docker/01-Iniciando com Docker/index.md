@@ -73,5 +73,32 @@ exemplo:
 ** executa o comando no container que está up
 
 
+## Trabalhando com volume
 
+Quando mapeamos volumes utilizando -v + path estamos utilizando bind com tipo mount
+É possivel utilizar bind com tipo volume. Em que esses volumes sao criados previamente.
 
+```
+docker volumes create [nome do volume]
+```
+
+Este modo possui a vantagem de criar volumes independente do container, podendo inclusive ser compartilhado entre conteinerers diferentes
+
+Para criar o container utilizando o volume previamente criado
+
+```
+docker run --mount type=source=[nome do volume],target=[path no container] [imagem]
+```
+
+Pode ser tambem utilizar -v
+```
+docker run -v [nome do volume]:[path no container] [imagem]
+```
+Mais:
+
+--- 
+```
+docker volume inspect [nome do volume]
+```
+
+Mostra detalhes do volume
