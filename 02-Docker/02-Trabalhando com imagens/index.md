@@ -30,6 +30,11 @@ RUN [comando] && [comando]
 COPY path/host /path/container
 ```
 
+Expose informa que na rede (passada ao iniciar o container) ele escutara nessa porta. Portanto é nessario quando se utiliza mais de um container na rede para os mesmo se comunicarem
+
+``` Dockerfile
+EXPOSE 8000
+```
 
 ### CMD x ENTRYPOINT
 
