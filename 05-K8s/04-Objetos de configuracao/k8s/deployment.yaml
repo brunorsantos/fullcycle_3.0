@@ -19,6 +19,12 @@ spec:
           image: "brsds2000/hello-go:v4"
           env:
             - name: NAME 
-              value: "Wesley"
+              valueFrom:
+                configMapKeyRef:
+                  name: goserver-env
+                  key: NAME
             - name: AGE
-              value: "36"
+              valueFrom:
+                configMapKeyRef:
+                  name: goserver-env
+                  key: AGE
