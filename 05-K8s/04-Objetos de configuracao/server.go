@@ -15,6 +15,6 @@ func Hello(w http.ResponseWriter, r *http.Request) {
 	name := os.Getenv("NAME")
 	age := os.Getenv("AGE")
 
-	fmt.Fprint(w, "Hello, I'm %s. I'm %s", name, age)
+	fmt.Fprintf(w, "Hello, I'm %s. I'm %s", name, age)
 	
 }
