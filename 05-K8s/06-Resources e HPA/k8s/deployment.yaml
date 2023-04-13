@@ -27,30 +27,6 @@ spec:
               cpu: "0.3"
               memory: 25Mi
 
-
-          # startupProbe:
-          #   httpGet:
-          #     path: /healthz
-          #     port: 80
-          #   periodSeconds: 3
-          #   failureThreshold: 30
-
-          # livenessProbe:
-          #   httpGet:
-          #     path: /healthz
-          #     port: 80
-          #   periodSeconds: 5
-          #   failureThreshold: 1
-          #   timeoutSeconds: 1 
-          #   successThreshold: 1
-
-          # readinessProbe:
-          #   httpGet:
-          #     path: /healthz
-          #     port: 80
-          #   periodSeconds: 3
-          #   failureThreshold: 1
-
           envFrom:
             - configMapRef:
                 name: goserver-env
