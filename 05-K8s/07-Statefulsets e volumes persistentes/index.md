@@ -14,3 +14,54 @@ No modo dinamico(mais utilizado) são utilizados os `StorageClass`. É um especi
 
 Nesse caso, quando for feita uma claim para uma storageClass, ela ficará responsavel por gerenciar junto com o provedor de nuvem o espaço em disco
 
+Podemos ver informações do StorageClass utilizando
+```
+kubectl get storageclass
+```
+
+Que sera exibido informações do storageClass especificas provedor de nuvem utilizado.
+
+
+
+## Persitent volume claim
+
+Ao criar um claim, seguindo o exemplo:
+
+
+```yml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: goserver-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+```
+
+
+Estamos solicitando para o storageClass (considerando que o mesmo existe) 5Gb de espaco.
+
+Em accessModes está definido neste caso que o acesso a leitura só pode ser realizada por pods que estejam no mesmo node do persitent volume
+
+
+Para fazer o bind desse Pvc, definimos no nivel do deployment(ou pod) o volume:
+
+```yml
+    volumes:
+    - name: goserver-volume
+        persistentVolumeClaim:
+        claimName: goserver-pvc
+```
+
+E montamos o mesmo nos containers
+
+```yml
+        volumeMounts:
+        - mountPath: "/go/pvc"
+            name: goserver-volume
+```
+
+## Statefulset
