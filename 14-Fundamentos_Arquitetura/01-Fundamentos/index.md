@@ -4,7 +4,14 @@
 
 ### Software
 
+
+Cuida diretamente dos processos de desenvolvimento, colocando em prática os detalhes destacados no projeto e as suas restrições. Trata a integração de componentes necessários para garantir a evolução e lucratividade do software. Lida com a parte de desenvolvimento e dos códigos, desde a criação até a entrega efetiva do software. Essa arquitetura também cuida da documentação.
+
 ### Solução
+
+É uma área totalmente técnica que cria o esboço do software considerando os detalhes e especificações do cliente durante o projeto. O projeto se refere ao desenho do software, sendo adaptado de acordo com as necessidades do negócio e as suas relações comerciais.
+
+[arquiterura de software vs arquitetura de solucao](https://fullcycle.com.br/arquitetura-de-software-vs-arquitetura-de-solucao/)
 
 ### Tecnologica
 
