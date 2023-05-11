@@ -15,3 +15,4 @@ Permite voce configurar como a requisiçoes serao roteadas para um serviço. Ela
 # Destination rules
 
 A destination rule é usada para configurar o que acontece com o trafego quando ele chega naquele destino
+
