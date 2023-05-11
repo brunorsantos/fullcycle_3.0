@@ -1,27 +1,18 @@
-Loop fazendo requests:
+Exibe logs do pod:
 
 ```
-
+kubectl logs [nome de pod]
 ```
 
 
-## Fortio (Testes de carga)
-
-
-Aplica fortio
+Executa o bash dentro do container do pod:
 
 ```
-
+kubeclt exect -it [nome do pod] -- bash
 ```
 
-Cria variavel de ambiente:
+Aplica o deployment e acompanha os pods
 
 ```
-
-```
-
-Cria um loop para fazer requests:
-
-```
-
+kubectl apply -f k8s/deployment.yaml && watch -n1 kubectl get pods
 ```
