@@ -12,3 +12,16 @@ istioctl install
 ```
 
 Que usará o profile default 
+
+Existem addons interessantes para instalar como:
+
+- [kiali](https://istio.io/latest/docs/ops/integrations/kiali/)
+- [jagger](https://istio.io/latest/docs/tasks/observability/distributed-tracing/jaeger/)
+- [prometeus](https://istio.io/latest/docs/ops/integrations/prometheus/)
+- [grafana](https://istio.io/latest/docs/ops/integrations/grafana/)
+
+
+Para abrir dashboard do kiali
+```
+istioctl dashboad kiali
+```
