@@ -14,11 +14,11 @@ Istio é uma projeto open-source que implementa service mesh visando diminuir a 
     - Circuit Breaker
     - Fault injection
         - Criar erros propositais para testar reacao e recuperação
-    - Observabilidade
+- Observabilidade
         - Metricas
         - Traces distribuidos
         - Logs
-    - Segurança
+- Segurança
         - Man-in-the-middle
             - Criptografia entre os servicos
         - mTLS
