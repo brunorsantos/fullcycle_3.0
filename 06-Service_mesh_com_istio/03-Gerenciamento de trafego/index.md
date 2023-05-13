@@ -82,3 +82,57 @@ Exemplo em: [consistent-hash.yaml](consistent-hash.yaml)
 
 
 
+## Fault injection
+
+É possivel adicionar uma falha, utilizando uma rota do do virtualService por exemplo
+
+```yml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nginx-vs 
+spec:
+  hosts: 
+  - nginx-service
+  http:
+    - fault:
+        # delay:
+        #   fixedDelay: 10s
+        #   percentage:
+        #     value: 100
+        abort:
+          httpStatus: 500
+          percentage:
+            value: 100
+      route: 
+      - destination: 
+          host: nginx-service 
+          subset: all 
+```
+
+
+## Circuit breaker
+
+É definido na DestinationRule
+
+```yml
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: circuit-breaker-servicex
+spec:
+  host: servicex-service.default.svc.cluster.local
+  trafficPolicy:
+    outlierDetection:
+      # consecutive5xxErrors: 20
+      consecutiveGatewayErrors: 10
+      interval: 20s
+      baseEjectionTime: 30s
+      maxEjectionPercent: 100
+```
+
+## Gateway
+
+Acessando servicos externamente batendo diretamente no service (acessando pela maquine por exemplo). O controle de tragego do istio nao funcionará, pois esse acesso nao possui um sidecar proxy para respeitar as rules do VirtualService e do destinationRule.
+
+Para resolver isso precisamos ter um gateway, que terá um proxy.
