@@ -136,3 +136,44 @@ spec:
 Acessando servicos externamente batendo diretamente no service (acessando pela maquine por exemplo). O controle de tragego do istio nao funcionará, pois esse acesso nao possui um sidecar proxy para respeitar as rules do VirtualService e do destinationRule.
 
 Para resolver isso precisamos ter um gateway, que terá um proxy.
+
+Para isso criamos um objeto do tipo gateway, mapeando o selector `istio: ingressgateway`
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: ingress-gateway-k3s
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port: 
+        number: 80
+        name: http
+        protocol: http2
+      hosts:
+      - "*"
+```
+
+## Dominios
+
+É possivel configurar virtualService por dominio:
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nginx-vs
+spec:
+  hosts: 
+  - "a.fullcycle"
+  gateways:
+    - "ingress-gateway-k3s"
+  http:
+    - route:
+      - destination:
+          host: nginx-service
+          subset: v1
+```
+
