@@ -11,3 +11,37 @@ Terraform é melhor para criar estruturas (novo cluster, criar um recurso na nuv
 O terraform grava um arquivo de estado, para comparar ao executar novamente. Caso esse arquivo nao exista, sera um problema para criar.
 
 É possivel configurar um arquivo online (bucket s3) para o trabalho em conjunto.
+
+## Inicio
+
+O Padrao para criar um recurso é:
+
+```hcl
+resource "local_file" "exemplo"{
+    filename = "exemplo.txt"
+    content = var.conteudo
+}
+```
+Onde
+
+- "local_file" é a juncao de qual provider que estamos utilizando com o nome do tipo.
+- "exemplo" é o nome do recurso na execucao
+
+Por padrao o terraform le o arquivo `terraform.tfvars` como padrao de definicao de variaveis
+
+É possivel ler recursos ja criados com o `data` (datasource)
+
+```hcl
+data "local_file" "conteudo-exemplo"{
+    filename = "exemplo.txt"
+}
+```
+
+É possivel exebir por exemplo em outputs
+
+```
+output "data-source-result" {
+    value = data.local_file.conteudo-exemplo.content_base64
+  
+}
+```
