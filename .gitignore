@@ -2,3 +2,4 @@
 02-Docker/05-Desafio-2/mysql
 08-Observabilidade/02 - Elastic Stack/elasticsearch_data
 15-Comunicacao-entre-sistemas/02-GraphQL/pkg
+10-Terraform/exemplo/.terraform/providers/registry.terraform.io/hashicorp/local/2.4.0/darwin_amd64/terraform-provider-local_v2.4.0_x5
