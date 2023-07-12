@@ -27,7 +27,7 @@ Onde
 - "local_file" é a juncao de qual provider que estamos utilizando com o nome do tipo.
 - "exemplo" é o nome do recurso na execucao
 
-Por padrao o terraform le o arquivo `terraform.tfvars` como padrao de definicao de variaveis
+Por padrao o terraform le o arquivo `terraform.tfvars` como padrao de passar de variaveis enquanto 
 
 É possivel ler recursos ja criados com o `data` (datasource)
 
@@ -45,3 +45,14 @@ output "data-source-result" {
   
 }
 ```
+
+## variaveis
+
+Por padrao o terraform le o arquivo `terraform.tfvars` como padrao de passar de variaveis enquanto `variables.tf` voce define quais as variaveis disponives
+
+## Count
+
+É possivel passar ao criar o resource um `count` em que o terraform criaria na quantidade passada. 
+
+Alem disso sera possivel utilizar index com `count.index`
+
