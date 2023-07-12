@@ -56,3 +56,10 @@ Por padrao o terraform le o arquivo `terraform.tfvars` como padrao de passar de 
 
 Alem disso sera possivel utilizar index com `count.index`
 
+## Criando cluster k8s utlizando apenas resources
+
+[link](https://github.com/codeedu/fc2-terraform/tree/resources)
+
+## Criando cluster k8s utlizando apenas resources
+
+[link](https://github.com/codeedu/fc2-terraform/tree/modules)
