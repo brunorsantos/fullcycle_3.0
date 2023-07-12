@@ -60,6 +60,6 @@ Alem disso sera possivel utilizar index com `count.index`
 
 [link](https://github.com/codeedu/fc2-terraform/tree/resources)
 
-## Criando cluster k8s utlizando apenas resources
+## Criando cluster k8s utlizando apenas modulos
 
 [link](https://github.com/codeedu/fc2-terraform/tree/modules)
